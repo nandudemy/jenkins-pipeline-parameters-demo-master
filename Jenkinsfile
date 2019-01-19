@@ -4,7 +4,7 @@ pipeline {
       booleanParam(
         name: 'CAN_DANCE',
         description: 'Deploy to QA',
-        defaultValue: true
+        defaultValue: false
       )
     }    
 
