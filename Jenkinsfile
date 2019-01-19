@@ -2,7 +2,7 @@ node {
 
     parameters {
       booleanParam(
-        name: 'isQABuild',
+        name: 'qa',
         description: 'Deploy to QA',
         defaultValue: true
       )
@@ -10,7 +10,7 @@ node {
 
   stage('Checkout') {
     checkout scm
-      echo "QA Build is ${params.isQABuild}"
+    echo "QA Build is ${params}"
   }
   
 
