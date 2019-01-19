@@ -12,7 +12,7 @@ node {
 
   stage('Checkout') {
     checkout scm
-    echo "Value of QA is ${isQABuild}"
+    echo "Value of QA is $isQABuild"
   }
 
   if(env.BRANCH_NAME ==~ /feature.*/){
