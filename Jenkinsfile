@@ -12,6 +12,9 @@ pipeline {
       description: 'Do the funky chicken!')
   }
  
+  stage('Checkout') {
+     checkout scm
+  }
 
   stages {
     stage('CI') {
