@@ -1,5 +1,5 @@
 pipeline {
-
+    agent any
     parameters {
       booleanParam(
         name: 'CAN_DANCE',
