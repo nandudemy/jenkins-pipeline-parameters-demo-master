@@ -1,6 +1,5 @@
 node {
 
-  properties([
     parameters {
       booleanParam(
         name: 'isQABuild',
@@ -8,7 +7,6 @@ node {
         defaultValue: false
       )
     }    
-  ])
 
   stage('Checkout') {
     checkout scm
