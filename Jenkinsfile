@@ -10,15 +10,9 @@ node {
 
   stage('Checkout') {
     checkout scm
-   
+      echo "QA Build is ${params.isQABuild}"
   }
   
-    
-    if (env.isQABuild){
-         stage("QA Build"){
-            echo "Running QA Build"
-         }
-    }
 
   if(env.BRANCH_NAME ==~ /feature.*/){
     stage("Deploy"){
