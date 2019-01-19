@@ -6,7 +6,7 @@ node {
         name: 'isQABuild',
         defaultValue: false,
         description: 'Deploy to QA'
-      ),
+      )
     }    
   ])
 
