@@ -10,8 +10,12 @@ node {
 
   stage('Checkout') {
     checkout scm
-    echo "Value of QA is: env.isQABuild"
+   
   }
+    
+    if (env.isQABuild){
+         echo "Running QA Build"
+    }
 
   if(env.BRANCH_NAME ==~ /feature.*/){
     stage("Deploy"){
