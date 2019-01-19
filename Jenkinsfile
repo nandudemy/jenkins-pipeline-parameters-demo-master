@@ -1,5 +1,5 @@
 node {
-  agent any
+
   properties([
     parameters {
       choice(name: 'door_choice',
@@ -14,51 +14,39 @@ node {
     }    
   ])
 
- 
   stage('Checkout') {
      checkout scm
   }
 
-  stages {
-    stage('CI') {
-      steps {
-        echo 'Hello World!'
-        echo "Trying: ${params.door_choice}"
-        echo "QA Build is: ${params.isQABuild}"
-        echo "The DJ says: ${params.sTrAnGePaRaM}"
-      }
+  if(env.BRANCH_NAME ==~ /feature.*/){
+    stage("Deploy"){
+       echo 'Performing Feature build'
     }
-
-    if(env.BRANCH_NAME ==~ /feature.*/){
-      stage("Deploy"){
-         echo 'Performing Feature build'
-      }
-    }
-
-    if(env.BRANCH_NAME == 'develop'){
-      if (params.isQABuild){
-        stage("Deploy"){
-          echo 'Performing QA build'
-        }
-      } else {
-        stage("Deploy"){
-          echo 'Performing CI build'
-        }
-      }
-    }
-
-    if(env.BRANCH_NAME ==~ /release.*/){
-      stage("Deploy"){
-         echo 'Performing release build'
-      }
-    }
-
-
-    if(env.BRANCH_NAME == 'master'){
-      stage("Deploy"){
-         echo 'Performing master build'
-      }
-    }
-
   }
+
+  if(env.BRANCH_NAME == 'develop'){
+    if (params.isQABuild){
+      stage("Deploy"){
+        echo 'Performing QA build'
+      }
+    } else {
+      stage("Deploy"){
+        echo 'Performing CI build'
+      }
+    }
+  }
+
+  if(env.BRANCH_NAME ==~ /release.*/){
+    stage("Deploy"){
+       echo 'Performing release build'
+    }
+  }
+
+
+  if(env.BRANCH_NAME == 'master'){
+    stage("Deploy"){
+       echo 'Performing master build'
+    }
+  }
+  
 }
