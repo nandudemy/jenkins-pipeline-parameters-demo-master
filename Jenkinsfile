@@ -9,7 +9,6 @@ pipeline {
     }    
 
   stage('Checkout') {
-    checkout scm
     echo "QA Build is ${params.CAN_DANCE}"
   }
   
