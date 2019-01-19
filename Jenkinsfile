@@ -14,7 +14,9 @@ node {
   }
     
     if (env.isQABuild){
-         echo "Running QA Build"
+         stage("QA Build"){
+            echo "Running QA Build"
+         }
     }
 
   if(env.BRANCH_NAME ==~ /feature.*/){
