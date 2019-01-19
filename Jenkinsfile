@@ -10,7 +10,10 @@ node {
 
   stage('Checkout') {
     checkout scm
-    echo "QA Build is ${params}"
+    echo "QA Build is ${params.qa}"
+          echo "QA Build is:" + params.qa
+      echo "$env"
+
   }
   
 
