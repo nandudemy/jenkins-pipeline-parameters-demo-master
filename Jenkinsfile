@@ -4,15 +4,15 @@ node {
     parameters {
       booleanParam(
         name: 'isQABuild',
-        defaultValue: false,
-        description: 'Deploy to QA'
+        description: 'Deploy to QA',
+        defaultValue: false
       )
     }    
   ])
 
   stage('Checkout') {
     checkout scm
-    echo "Value of QA is:" +  params.isQABuild 
+    echo "Value of QA is: ${params.isQABuild}"
   }
 
   if(env.BRANCH_NAME ==~ /feature.*/){
