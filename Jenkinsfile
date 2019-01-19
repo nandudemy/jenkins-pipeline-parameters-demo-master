@@ -8,9 +8,12 @@ pipeline {
       )
     }    
 
-  stage('Checkout') {
-    echo "QA Build is ${params.CAN_DANCE}"
-  }
-  
+    stages {
+        stage('Checkout') {
+          steps {
+            echo "QA Build is ${params.CAN_DANCE}"
+          }
+        }
+    }  
 
 }
