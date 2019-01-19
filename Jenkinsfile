@@ -1,16 +1,19 @@
 node {
   agent any
-  parameters {
-    choice(name: 'door_choice',
-      choices: 'one\ntwo\nthree\nfour',
-      description: 'What door do you choose?')
-    booleanParam(name: 'isQABuild',
-      defaultValue: false,
-      description: 'Deploy to QA')
-    string(name: 'sTrAnGePaRaM',
-      defaultValue: 'Dance!',
-      description: 'Do the funky chicken!')
-  }
+  properties([
+    parameters {
+      choice(name: 'door_choice',
+        choices: 'one\ntwo\nthree\nfour',
+        description: 'What door do you choose?')
+      booleanParam(name: 'isQABuild',
+        defaultValue: false,
+        description: 'Deploy to QA')
+      string(name: 'sTrAnGePaRaM',
+        defaultValue: 'Dance!',
+        description: 'Do the funky chicken!')
+    }    
+  ])
+
  
   stage('Checkout') {
      checkout scm
