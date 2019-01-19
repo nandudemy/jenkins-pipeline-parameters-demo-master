@@ -1,4 +1,4 @@
-pipeline {
+node {
   agent any
   parameters {
     choice(name: 'door_choice',
