@@ -4,7 +4,7 @@ node {
       booleanParam(
         name: 'isQABuild',
         description: 'Deploy to QA',
-        defaultValue: false
+        defaultValue: true
       )
     }    
 
@@ -12,6 +12,7 @@ node {
     checkout scm
    
   }
+  
     
     if (env.isQABuild){
          stage("QA Build"){
